@@ -6,24 +6,10 @@ if exists("b:current_synatx")
     finish
 endif
 
+runtime! syntax/arb_assembly.vim
+
 " Global matches {{{1
 " Types {{{2
-syn match arbErr         "\s*#\@!.\+"                                                    contained nextgroup=arbErr
-syn match arbInt         "-\?\d\+"                                                       contained
-syn match arbFloat       "-\?\d*\.\d\+"                                                  contained
-syn match arbDelimiter   "[,;\.]"                                                        contained
-syn match arbBraces      "[\[\]{}]"                                                      contained
-syn match arbKeyword     "[A-Z]\+"                                                       contained
-syn match arbSwizzle     "\.[xyzw]"                                                      contained contains=arbDelimiter
-syn match arbSwizzle     "\.[rgba]"                                                      contained contains=arbDelimiter
-syn match arbExtension   "ARB_[a-z_]\+"                                                  contained
-syn match arbComment     "#.*$"                                                                    contains=Todo
-syn match arbOperator    "[=]"                                                           contained
-syn match arbSwizType    "[01rgba]\(,[01rgba]\)\{3}"                                     contained contains=arbDelimiter
-syn match arbSwizType    "[01xyzw]\(,[01xyzw]\)\{3}"                                     contained contains=arbDelimiter
-syn match arbTexTarget   "\([123]D\|CUBE\|RECT\)"                                        contained
-syn match arbIdentifier  "[a-z]\+\(\.[a-z]\+\)\?\(\[\d\+\]\)\?"                          contained contains=arbType,arbBraces,arbInt,arbSwizzle
-syn match arbVec         "{\s*\(-\?\d*\.\d\+\s*,\s*\)\{3}-\?\d*\.\d\+\s*}"               contained contains=arbDelimiter,arbBraces,arbFloat
 syn match arbType        "fragment\.color\(\.\(primary\|secondary\)\)\?"                 contained
 syn match arbType        "fragment\.texcoord\(\[\d\+\]\)\?"                              contained contains=arbBraces,arbInt
 syn match arbType        "fragment\.\(fragcoord\|position\)"                             contained contains=arbBraces,arbInt
@@ -46,12 +32,6 @@ syn match arbState       "state\.depth\.range"                                  
 syn match arbState       "state\.matrix\.[.\[\]\da-z]\+"                                 contained contains=arbMatrix
 
 " Argument Signatures {{{2
-syn match arbVectorOp  "\_s*[a-z\.]\+\_s*,\_s*\({[-0-9\., ]\+}\|[a-z\.]\+\)"             contained contains=arbVec,arbIdentifier,arbDelimiter
-syn match arbVectorOp2 "\_s*[a-z\.]\+\(\_s*,\_s*\({[-0-9\., ]\+}\|[a-z\.]\)\+\)\{2}"     contained contains=arbVec,arbIdentifier,arbDelimiter
-syn match arbVectorOp3 "\_s*[a-z\.]\+\(\_s*,\_s*\({[-0-9\., ]\+}\|[a-z\.]\)\+\)\{3}"     contained contains=arbVec,arbIdentifier,arbDelimiter
-syn match arbScalarOp  "\_s*[a-z\.]\+\_s*,\_s*\([-0-9\. ]\+\|[a-z\.]\+\)"                contained contains=arbFloat,arbIdentifier,arbDelimiter
-syn match arbScalarOp2 "\_s*[a-z\.]\+\(\_s*,\_s*\([-0-9\. ]\+\|[a-z\.]\+\)\)\{2}"        contained contains=arbFloat,arbIdentifier,arbDelimiter
-syn match arbOption    "\_s*[A-Za-z_]\+"                                                 contained contains=arbExtension
 syn match arbAttrib    "[a-z\.]\+\_s*=\_s*fragment\.\(fogcoord\|position\)"              contained contains=arbIdentifier,arbOperator
 syn match arbAttrib    "[a-z\.]\+\_s*=\_s*fragment\.texcoord\(\_s\+\d\+\)\?"             contained contains=arbIdentifier,arbOperator,arbInt
 syn match arbAttrib    "[a-z\.]\+\_s*=\_s*fragment\.color\(\.\(primary\|secondary\)\)\?" contained contains=arbIdentifier,arbOperator,arbInt
@@ -64,19 +44,6 @@ syn match arbParamOp   "\_s*[a-z\.]\+\_s*=\_s*state\..*"                        
 
 
 " Highlights {{{2
-hi def link arbErr              Error
-hi def link arbInt              Number
-hi def link arbFloat            Float
-hi def link arbComment          Comment
-hi def link arbDelimiter        Delimiter
-hi def link arbBraces           Operator
-hi def link arbOperator         Operator
-hi def link arbKeyword          Keyword
-hi def link arbStart            Keyword
-hi def link arbExtension        String
-hi def link arbSwizzle          String
-hi def link arbSwizType         String
-hi def link arbTexTarget        StorageClass
 hi def link arbType             Type
 hi def link arbProgram          Type
 hi def link arbState            Type
