@@ -1,8 +1,8 @@
-"Language: ARB Vertex Assembly
+"Language: ARB Fragment Assembly
 "Maintainer: Dylan Baker <baker.dylan.c@gmail.com>
 
 " Vim stuff {{{1
-if exists("b:current_synatx")
+if exists("b:current_syntax")
     finish
 endif
 
@@ -115,6 +115,6 @@ syn region arbRegion matchgroup=arbKeyword start="^ATTRIB"           end=";" kee
 syn region arbRegion matchgroup=arbKeyword start="^PARAM"            end=";" keepend contains=arbParamOp
 
 " vim stuff {{{1
-let b:current_syntax = "ARB vertex assembly"
+let b:current_syntax = "ARB fragment assembly"
 
 " vim: foldmethod=marker spell
