@@ -27,6 +27,7 @@ syn match arbVectorOp3 "\_s*[a-z\.]\+\(\_s*,\_s*\({[-0-9\., ]\+}\|[a-z\.]\)\+\)\
 syn match arbScalarOp  "\_s*[a-z\.]\+\_s*,\_s*\([-0-9\. ]\+\|[a-z\.]\+\)"                contained contains=arbFloat,arbIdentifier,arbDelimiter
 syn match arbScalarOp2 "\_s*[a-z\.]\+\(\_s*,\_s*\([-0-9\. ]\+\|[a-z\.]\+\)\)\{2}"        contained contains=arbFloat,arbIdentifier,arbDelimiter
 syn match arbOption    "\_s*[A-Za-z_]\+"                                                 contained contains=arbExtension
+syn match arbIdOp      "\_s*[a-z\.]\+\_s*,\_s*\[a-z\.]\+"                                contained contains=arbIdentifier,arbDelimiter
 
 
 " Highlights {{{2

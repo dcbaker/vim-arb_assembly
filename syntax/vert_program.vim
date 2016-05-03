@@ -17,6 +17,7 @@ syn match arbEnd     "END"        nextgroup=arbErr contains=arbKeyword
 " Special {{{3
 syn region arbRegion matchgroup=arbKeyword start="^OPTION" end=";"           keepend contains=arbOption,arbDelimiter
 syn region arbRegion matchgroup=arbKeyword start="^SWZ"    end=";"           keepend contains=arbSwizType,arbVectorOp,arbDelimiter
+syn region arbRegion matchgroup=arbKeyword start="^ARL"    end=";"           keepend contains=arbIdOp
 
 " dest + vector {{{3
 syn region arbRegion matchgroup=arbKeyword start="^ABS" end=";" keepend contains=arbVectorOp,arbErr
