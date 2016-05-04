@@ -51,9 +51,6 @@ hi def link arbMaterials        Type
 hi def link arbMatrix           Type
 hi def link arbLights           Type
 
-" TODO: remove the following, identifiers don't get colored.
-"hi def link arbIdentifier       Type
-
 
 " Commands {{{1
 " Special {{{2
