@@ -30,11 +30,12 @@ syn match arbFpState       "state\.texenv\(\[\d\+\]\)\?\.color"                 
 syn match arbFpState       "state\.fog\.\(color\|params\)"                                 contained
 syn match arbFpState       "state\.depth\.range"                                           contained
 syn match arbFpState       "state\.matrix\.[.\[\]\da-z]\+"                                 contained contains=arbFpMatrix
+syn match arbFpAttribBinding "fragment\.\(fogcoord\|position\)"                         contained
+syn match arbFpAttribBinding "fragment\.texcoord\(\[\d\+\]\)\?\s*\d*"                   contained contains=arbBraces,arbInt
+syn match arbFpAttribBinding "fragment\.color\(\.\(primary\|secondary\)\)\?"            contained
 
 " Argument Signatures {{{2
-syn match arbFpAttrib    "[a-z\.]\+\_s*=\_s*fragment\.\(fogcoord\|position\)"              contained contains=arbIdentifier,arbOperator
-syn match arbFpAttrib    "[a-z\.]\+\_s*=\_s*fragment\.texcoord\(\_s\+\d\+\)\?"             contained contains=arbIdentifier,arbOperator,arbInt
-syn match arbFpAttrib    "[a-z\.]\+\_s*=\_s*fragment\.color\(\.\(primary\|secondary\)\)\?" contained contains=arbIdentifier,arbOperator,arbInt
+syn match arbFpAttrib    "[a-z\.]\+\_s*=\_s*fragment\..*"                                  contained contains=arbIdentifier,arbOperator,arbFpAttribBinding
 syn match arbFpSampleOp  "\_s*[a-z\.]\+\_s*,\_s*\({[-0-9\., ]\+}\|[a-z\.]\+\)\_s*,\_s*\d\+\_s*,\_s*\([123]D\|CUBE\|RECT\)" contained contains=arbFpTexTarget,arbInt,arbIdentifier,arbDelimiter
 syn match arbFpParamOp   "\_s*[a-z\.]\+\_s*=\_s*[a-z\.]\+"                                 contained contains=arbIdentifier,arbOperator
 syn match arbFpParamOp   "\_s*[a-z\.]\+\_s*=\_s*\d*\.\d\+"                                 contained contains=arbIdentifier,arbOperator,arbFloat
@@ -53,6 +54,7 @@ hi def link arbFpLights           Type
 hi def link arbFpProgram          Type
 hi def link arbFpKeyword          arbKeyword
 hi def link arbFpStart            arbKeyword
+hi def link arbFpAttribBinding    Type
 
 
 " Commands {{{1
