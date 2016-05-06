@@ -11,11 +11,26 @@ runtime! syntax/arb_assembly.vim
 " Highlight groups {{{1
 hi def link arbVpKeyword     arbKeyword
 hi def link arbVpStart       arbVpKeyword
+hi def link arbVpBinding     Type
 
 " Commands {{{1
 " Special {{{2
 syn match arbVpStart   "!!ARBvp1.0" nextgroup=arbErr
 syn match arbVpEnd     "END"        nextgroup=arbErr contains=arbKeyword
+
+" Types {{{2
+
+" Technically this is only supposed to contain multiples of 4, but I have no
+" idea how to implement that here, though I think it would be worth it.
+syn match arbVpBinding "vertex\.weight\(\[\d\+\]\)\?"                            contained contains=arbBraces,arbInt
+syn match arbVpBinding "vertex\.\(normal\|position\)"                            contained
+syn match arbVpBinding "vertex\.color\(\.\(primary\|secondary\)\)\?"             contained
+syn match arbVpBinding "vertex\.fogcoord\(\[\d\+\]\)\?"                          contained contains=arbBraces,arbInt
+syn match arbVpBinding "vertex\.matrixindex\[\d\+\]"                             contained contains=arbBraces,arbInt
+syn match arbVpBinding "vertex\.attrib\[\d\+\]"                                  contained contains=arbBraces,arbInt
+
+" Function Signatures
+syn match arbVpAttribOp     "\_s*[a-z]\+\_s*=\_s*[a-z\.\[\]\d]\+"                contained contains=arbIdentifier,arbOperator,arbVpBinding
 
 " Regions {{{2
 " Special {{{3
@@ -58,6 +73,9 @@ syn region arbVpRegion matchgroup=arbVpKeyword start="^RSQ" end=";" keepend cont
 
 " dest + 2 scalars {{{3
 syn region arbVpRegion matchgroup=arbVpKeyword start="^POW" end=";" keepend contains=arbScalarOp2,arbErr
+
+" Naming {{{3
+syn region arbVpRegion matchgroup=arbVpKeyword start="^ATTRIB" end=";" keepend contains=arbVpAttribOp
 
 
 " vim stuff {{{1
