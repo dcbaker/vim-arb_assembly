@@ -30,9 +30,10 @@ syn match arbFpState       "state\.texenv\(\[\d\+\]\)\?\.color"                 
 syn match arbFpState       "state\.fog\.\(color\|params\)"                                 contained
 syn match arbFpState       "state\.depth\.range"                                           contained
 syn match arbFpState       "state\.matrix\.[.\[\]\da-z]\+"                                 contained contains=arbFpMatrix
-syn match arbFpAttribBinding "fragment\.\(fogcoord\|position\)"                         contained
-syn match arbFpAttribBinding "fragment\.texcoord\(\[\d\+\]\)\?\s*\d*"                   contained contains=arbBraces,arbInt
-syn match arbFpAttribBinding "fragment\.color\(\.\(primary\|secondary\)\)\?"            contained
+syn match arbFpAttribBinding "fragment\.\(fogcoord\|position\)"                            contained
+syn match arbFpAttribBinding "fragment\.texcoord\(\[\d\+\]\)\?\s*\d*"                      contained contains=arbBraces,arbInt
+syn match arbFpAttribBinding "fragment\.color\(\.\(primary\|secondary\)\)\?"               contained
+syn match arbFpOutputBinding "result\.\(color\|depth\)"                                    contained
 
 " Argument Signatures {{{2
 syn match arbFpAttrib    "[a-z\.]\+\_s*=\_s*fragment\..*"                                  contained contains=arbIdentifier,arbOperator,arbFpAttribBinding
@@ -44,7 +45,7 @@ syn match arbFpParamOp   "\_s*[a-z\.]\+\(\[\d\+\]\)\?\_s*=\_s*program.\(env\|loc
 syn match arbFpParamOp   "\_s*[a-z\.]\+\(\[\d\+\]\)\?\_s*=\_s*state\..*"                                 contained contains=arbIdentifier,arbOperator,arbFpState
 syn match arbFpParamOp   "\_s*[a-z\.]\+\(\[\d\+\]\)\_s*=\_s*{.*}"                                        contained contains=arbIdentifier,arbBraces,arbOperator,arbFloat,arbVec,arbFpProgram,arbFpState " Multi only
 syn match arbFpTempOp    "\(\_s*[a-z\.]\+\_s*,\?\)\+"                                                    contained contains=arbIdentifier,arbOperator
-
+syn match arbFpOutputOp  "\_s*[a-z.]\+\_s*=\_s*result\..*"                                               contained contains=arbIdentifier,arbOperator,arbFpOutputBinding
 
 " Highlights {{{2
 hi def link arbFpFragment         Type
@@ -57,6 +58,7 @@ hi def link arbFpProgram          Type
 hi def link arbFpKeyword          arbKeyword
 hi def link arbFpStart            arbKeyword
 hi def link arbFpAttribBinding    Type
+hi def link arbFpOutputBinding    Type
 
 
 " Commands {{{1
@@ -118,6 +120,7 @@ syn region arbFpRegion matchgroup=arbFpKeyword start="^\(TXB_SAT\|TXB\)" end=";"
 syn region arbFpRegion matchgroup=arbFpKeyword start="^ATTRIB"           end=";" keepend contains=arbFpAttrib
 syn region arbFpRegion matchgroup=arbFpKeyword start="^PARAM"            end=";" keepend contains=arbFpParamOp
 syn region arbFpRegion matchgroup=arbFpKeyword start="^TEMP"             end=";" keepend contains=arbFpTempOp
+syn region arbFpRegion matchgroup=arbFpKeyword start="^OUTPUT"           end=";" keepend contains=arbFpOutputOp
 
 " vim stuff {{{1
 let b:current_syntax = "ARB fragment assembly"
