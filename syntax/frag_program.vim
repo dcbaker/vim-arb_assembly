@@ -64,48 +64,48 @@ syn region arbRegion matchgroup=arbKeyword start="^SWZ"    end=";"           kee
 syn region arbRegion matchgroup=arbKeyword start="^KIL"    end=";"           keepend contains=arbIdentifier
 
 " dest + vector {{{3
-syn region arbRegion matchgroup=arbKeyword start="^\(ABS\|ABS_SAT\)" end=";" keepend contains=arbVectorOp,arbErr
-syn region arbRegion matchgroup=arbKeyword start="^\(FLR\|FLR_SAT\)" end=";" keepend contains=arbVectorOp,arbErr
-syn region arbRegion matchgroup=arbKeyword start="^\(FRC\|FRC_SAT\)" end=";" keepend contains=arbVectorOp,arbErr
-syn region arbRegion matchgroup=arbKeyword start="^\(LIT\|LIT_SAT\)" end=";" keepend contains=arbVectorOp,arbErr
-syn region arbRegion matchgroup=arbKeyword start="^\(MOV\|MOV_SAT\)" end=";" keepend contains=arbVectorOp,arbErr
+syn region arbRegion matchgroup=arbKeyword start="^\(ABS_SAT\|ABS\)" end=";" keepend contains=arbVectorOp,arbErr
+syn region arbRegion matchgroup=arbKeyword start="^\(FLR_SAT\|FLR\)" end=";" keepend contains=arbVectorOp,arbErr
+syn region arbRegion matchgroup=arbKeyword start="^\(FRC_SAT\|FRC\)" end=";" keepend contains=arbVectorOp,arbErr
+syn region arbRegion matchgroup=arbKeyword start="^\(LIT_SAT\|LIT\)" end=";" keepend contains=arbVectorOp,arbErr
+syn region arbRegion matchgroup=arbKeyword start="^\(MOV_SAT\|MOV\)" end=";" keepend contains=arbVectorOp,arbErr
 
 
 " dest + 2 vectors {{{3
-syn region arbRegion matchgroup=arbKeyword start="^\(ADD\|ADD_SAT\)" end=";" keepend contains=arbVectorOp2,arbErr
-syn region arbRegion matchgroup=arbKeyword start="^\(DP3\|DP3_SAT\)" end=";" keepend contains=arbVectorOp2,arbErr
-syn region arbRegion matchgroup=arbKeyword start="^\(DP4\|DP4_SAT\)" end=";" keepend contains=arbVectorOp2,arbErr
-syn region arbRegion matchgroup=arbKeyword start="^\(DPH\|DPH_SAT\)" end=";" keepend contains=arbVectorOp2,arbErr
-syn region arbRegion matchgroup=arbKeyword start="^\(DST\|DST_SAT\)" end=";" keepend contains=arbVectorOp2,arbErr
-syn region arbRegion matchgroup=arbKeyword start="^\(MAX\|MAX_SAT\)" end=";" keepend contains=arbVectorOp2,arbErr
-syn region arbRegion matchgroup=arbKeyword start="^\(MIN\|MIN_SAT\)" end=";" keepend contains=arbVectorOp2,arbErr
-syn region arbRegion matchgroup=arbKeyword start="^\(MUL\|MUL_SAT\)" end=";" keepend contains=arbVectorOp2,arbErr
-syn region arbRegion matchgroup=arbKeyword start="^\(SGE\|SGE_SAT\)" end=";" keepend contains=arbVectorOp2,arbErr
-syn region arbRegion matchgroup=arbKeyword start="^\(SLT\|SLT_SAT\)" end=";" keepend contains=arbVectorOp2,arbErr
-syn region arbRegion matchgroup=arbKeyword start="^\(SUB\|SUB_SAT\)" end=";" keepend contains=arbVectorOp2,arbErr
-syn region arbRegion matchgroup=arbKeyword start="^\(CMP\|CMP_SAT\)" end=";" keepend contains=arbVectorOp2,arbErr
+syn region arbRegion matchgroup=arbKeyword start="^\(ADD_SAT\|ADD\)" end=";" keepend contains=arbVectorOp2,arbErr
+syn region arbRegion matchgroup=arbKeyword start="^\(DP3_SAT\|DP3\)" end=";" keepend contains=arbVectorOp2,arbErr
+syn region arbRegion matchgroup=arbKeyword start="^\(DP4_SAT\|DP4\)" end=";" keepend contains=arbVectorOp2,arbErr
+syn region arbRegion matchgroup=arbKeyword start="^\(DPH_SAT\|DPH\)" end=";" keepend contains=arbVectorOp2,arbErr
+syn region arbRegion matchgroup=arbKeyword start="^\(DST_SAT\|DST\)" end=";" keepend contains=arbVectorOp2,arbErr
+syn region arbRegion matchgroup=arbKeyword start="^\(MAX_SAT\|MAX\)" end=";" keepend contains=arbVectorOp2,arbErr
+syn region arbRegion matchgroup=arbKeyword start="^\(MIN_SAT\|MIN\)" end=";" keepend contains=arbVectorOp2,arbErr
+syn region arbRegion matchgroup=arbKeyword start="^\(MUL_SAT\|MUL\)" end=";" keepend contains=arbVectorOp2,arbErr
+syn region arbRegion matchgroup=arbKeyword start="^\(SGE_SAT\|SGE\)" end=";" keepend contains=arbVectorOp2,arbErr
+syn region arbRegion matchgroup=arbKeyword start="^\(SLT_SAT\|SLT\)" end=";" keepend contains=arbVectorOp2,arbErr
+syn region arbRegion matchgroup=arbKeyword start="^\(SUB_SAT\|SUB\)" end=";" keepend contains=arbVectorOp2,arbErr
+syn region arbRegion matchgroup=arbKeyword start="^\(CMP_SAT\|CMP\)" end=";" keepend contains=arbVectorOp2,arbErr
 
 " dest + 3 vectors {{{3
-syn region arbRegion matchgroup=arbKeyword start="^\(XPD\|XPD_SAT\)" end=";" keepend contains=arbVectorOp3,arbErr
-syn region arbRegion matchgroup=arbKeyword start="^\(LRP\|LRP_SAT\)" end=";" keepend contains=arbVectorOp3,arbErr
-syn region arbRegion matchgroup=arbKeyword start="^\(MAD\|MAD_SAT\)" end=";" keepend contains=arbVectorOp3,arbErr
+syn region arbRegion matchgroup=arbKeyword start="^\(XPD_SAT\|XPD\)" end=";" keepend contains=arbVectorOp3,arbErr
+syn region arbRegion matchgroup=arbKeyword start="^\(LRP_SAT\|LRP\)" end=";" keepend contains=arbVectorOp3,arbErr
+syn region arbRegion matchgroup=arbKeyword start="^\(MAD_SAT\|MAD\)" end=";" keepend contains=arbVectorOp3,arbErr
 
 " dest + scalars {{{3
-syn region arbRegion matchgroup=arbKeyword start="^\(COS\|COS_SAT\)" end=";" keepend contains=arbScalarOp,arbErr
-syn region arbRegion matchgroup=arbKeyword start="^\(EX2\|EX2_SAT\)" end=";" keepend contains=arbScalarOp,arbErr
-syn region arbRegion matchgroup=arbKeyword start="^\(LG2\|LG2_SAT\)" end=";" keepend contains=arbScalarOp,arbErr
-syn region arbRegion matchgroup=arbKeyword start="^\(RCP\|RCP_SAT\)" end=";" keepend contains=arbScalarOp,arbErr
-syn region arbRegion matchgroup=arbKeyword start="^\(RSQ\|RSQ_SAT\)" end=";" keepend contains=arbScalarOp,arbErr
-syn region arbRegion matchgroup=arbKeyword start="^\(SIN\|SIN_SAT\)" end=";" keepend contains=arbScalarOp,arbErr
-syn region arbRegion matchgroup=arbKeyword start="^\(SCS\|SCS_SAT\)" end=";" keepend contains=arbScalarOp,arbErr
+syn region arbRegion matchgroup=arbKeyword start="^\(COS_SAT\|COS\)" end=";" keepend contains=arbScalarOp,arbErr
+syn region arbRegion matchgroup=arbKeyword start="^\(EX2_SAT\|EX2\)" end=";" keepend contains=arbScalarOp,arbErr
+syn region arbRegion matchgroup=arbKeyword start="^\(LG2_SAT\|LG2\)" end=";" keepend contains=arbScalarOp,arbErr
+syn region arbRegion matchgroup=arbKeyword start="^\(RCP_SAT\|RCP\)" end=";" keepend contains=arbScalarOp,arbErr
+syn region arbRegion matchgroup=arbKeyword start="^\(RSQ_SAT\|RSQ\)" end=";" keepend contains=arbScalarOp,arbErr
+syn region arbRegion matchgroup=arbKeyword start="^\(SIN_SAT\|SIN\)" end=";" keepend contains=arbScalarOp,arbErr
+syn region arbRegion matchgroup=arbKeyword start="^\(SCS_SAT\|SCS\)" end=";" keepend contains=arbScalarOp,arbErr
 
 " dest + 2 scalars {{{3
-syn region arbRegion matchgroup=arbKeyword start="^\(POW\|POW_SAT\)" end=";" keepend contains=arbScalarOp2,arbErr
+syn region arbRegion matchgroup=arbKeyword start="^\(POW_SAT\|POW\)" end=";" keepend contains=arbScalarOp2,arbErr
 
 " sample {{{3
-syn region arbRegion matchgroup=arbKeyword start="^\(TEX\|TEX_SAT\)" end=";" keepend contains=arbSampleOp
-syn region arbRegion matchgroup=arbKeyword start="^\(TXP\|TXP_SAT\)" end=";" keepend contains=arbSampleOp
-syn region arbRegion matchgroup=arbKeyword start="^\(TXB\|TXB_SAT\)" end=";" keepend contains=arbSampleOp
+syn region arbRegion matchgroup=arbKeyword start="^\(TEX_SAT\|TEX\)" end=";" keepend contains=arbSampleOp
+syn region arbRegion matchgroup=arbKeyword start="^\(TXP_SAT\|TXP\)" end=";" keepend contains=arbSampleOp
+syn region arbRegion matchgroup=arbKeyword start="^\(TXB_SAT\|TXB\)" end=";" keepend contains=arbSampleOp
 
 " Naming {{{3
 syn region arbRegion matchgroup=arbKeyword start="^ATTRIB"           end=";" keepend contains=arbAttrib
