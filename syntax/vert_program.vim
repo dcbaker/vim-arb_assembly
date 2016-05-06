@@ -77,6 +77,7 @@ syn region arbVpRegion matchgroup=arbVpKeyword start="^POW" end=";" keepend cont
 syn region arbVpRegion matchgroup=arbVpKeyword start="^ATTRIB"  end=";" keepend contains=arbVpAttribOp
 syn region arbVpRegion matchgroup=arbVpKeyword start="^TEMP"    end=";" keepend contains=arbNameListOp
 syn region arbVpRegion matchgroup=arbVpKeyword start="^ADDRESS" end=";" keepend contains=arbNameListOp
+syn region arbVpRegion matchgroup=arbVpKeyword start="^ALIAS"   end=";" keepend contains=arbAliasOp
 
 
 " vim stuff {{{1
