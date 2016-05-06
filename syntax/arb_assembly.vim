@@ -22,13 +22,14 @@ syn match arbSpecial     "program\.\(local\|env\)"                              
 syn match arbIdentifier  "[a-z]\+\(\.[a-z]\+\)\?\(\[\d\+\]\)\?"                          contained contains=arbType,arbBraces,arbInt,arbSwizzle,arbSpecial
 
 " Argument Signatures {{{2
-syn match arbVectorOp  "\_s*[a-z\.]\+\_s*,\_s*\({[-0-9\., ]\+}\|[a-z\.]\+\)"             contained contains=arbVec,arbIdentifier,arbDelimiter
-syn match arbVectorOp2 "\_s*[a-z\.]\+\(\_s*,\_s*\({[-0-9\., ]\+}\|[a-z\.]\)\+\)\{2}"     contained contains=arbVec,arbIdentifier,arbDelimiter
-syn match arbVectorOp3 "\_s*[a-z\.]\+\(\_s*,\_s*\({[-0-9\., ]\+}\|[a-z\.]\)\+\)\{3}"     contained contains=arbVec,arbIdentifier,arbDelimiter
-syn match arbScalarOp  "\_s*[a-z\.]\+\_s*,\_s*\([-0-9\. ]\+\|[a-z\.]\+\)"                contained contains=arbFloat,arbIdentifier,arbDelimiter
-syn match arbScalarOp2 "\_s*[a-z\.]\+\(\_s*,\_s*\([-0-9\. ]\+\|[a-z\.]\+\)\)\{2}"        contained contains=arbFloat,arbIdentifier,arbDelimiter
-syn match arbOption    "\_s*[A-Za-z_]\+"                                                 contained contains=arbExtension
-syn match arbIdOp      "\_s*[a-z\.]\+\_s*,\_s*\[a-z\.]\+"                                contained contains=arbIdentifier,arbDelimiter
+syn match arbVectorOp   "\_s*[a-z\.]\+\_s*,\_s*\({[-0-9\., ]\+}\|[a-z\.]\+\)"             contained contains=arbVec,arbIdentifier,arbDelimiter
+syn match arbVectorOp2  "\_s*[a-z\.]\+\(\_s*,\_s*\({[-0-9\., ]\+}\|[a-z\.]\)\+\)\{2}"     contained contains=arbVec,arbIdentifier,arbDelimiter
+syn match arbVectorOp3  "\_s*[a-z\.]\+\(\_s*,\_s*\({[-0-9\., ]\+}\|[a-z\.]\)\+\)\{3}"     contained contains=arbVec,arbIdentifier,arbDelimiter
+syn match arbScalarOp   "\_s*[a-z\.]\+\_s*,\_s*\([-0-9\. ]\+\|[a-z\.]\+\)"                contained contains=arbFloat,arbIdentifier,arbDelimiter
+syn match arbScalarOp2  "\_s*[a-z\.]\+\(\_s*,\_s*\([-0-9\. ]\+\|[a-z\.]\+\)\)\{2}"        contained contains=arbFloat,arbIdentifier,arbDelimiter
+syn match arbOption     "\_s*[A-Za-z_]\+"                                                 contained contains=arbExtension
+syn match arbIdOp       "\_s*[a-z\.]\+\_s*,\_s*\[a-z\.]\+"                                contained contains=arbIdentifier,arbDelimiter
+syn match arbNameListOp "\(\_s*[a-z\.]\+\_s*,\?\)\+"                                      contained contains=arbIdentifier,arbDelimiter
 
 
 " Highlights {{{2

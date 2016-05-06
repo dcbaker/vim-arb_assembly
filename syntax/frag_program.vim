@@ -44,7 +44,6 @@ syn match arbFpParamOp   "\_s*[a-z\.]\+\(\[\d\+\]\)\?\_s*=\_s*{\s*\d*\.\d\+\(\s*
 syn match arbFpParamOp   "\_s*[a-z\.]\+\(\[\d\+\]\)\?\_s*=\_s*program.\(env\|local\)\[\d\+\]"            contained contains=arbIdentifier,arbOperator,arbFpProgram
 syn match arbFpParamOp   "\_s*[a-z\.]\+\(\[\d\+\]\)\?\_s*=\_s*state\..*"                                 contained contains=arbIdentifier,arbOperator,arbFpState
 syn match arbFpParamOp   "\_s*[a-z\.]\+\(\[\d\+\]\)\_s*=\_s*{.*}"                                        contained contains=arbIdentifier,arbBraces,arbOperator,arbFloat,arbVec,arbFpProgram,arbFpState " Multi only
-syn match arbFpTempOp    "\(\_s*[a-z\.]\+\_s*,\?\)\+"                                                    contained contains=arbIdentifier,arbOperator
 syn match arbFpOutputOp  "\_s*[a-z.]\+\_s*=\_s*result\..*"                                               contained contains=arbIdentifier,arbOperator,arbFpOutputBinding
 syn match arbFpAliasOp   "\_s*[a-z]\+\_s*=\_s*[a-z]\+"                                                   contained contains=arbIdentifier,arbOperator
 
@@ -120,7 +119,7 @@ syn region arbFpRegion matchgroup=arbFpKeyword start="^\(TXB_SAT\|TXB\)" end=";"
 " Naming {{{3
 syn region arbFpRegion matchgroup=arbFpKeyword start="^ATTRIB"           end=";" keepend contains=arbFpAttrib
 syn region arbFpRegion matchgroup=arbFpKeyword start="^PARAM"            end=";" keepend contains=arbFpParamOp
-syn region arbFpRegion matchgroup=arbFpKeyword start="^TEMP"             end=";" keepend contains=arbFpTempOp
+syn region arbFpRegion matchgroup=arbFpKeyword start="^TEMP"             end=";" keepend contains=arbNameListOp
 syn region arbFpRegion matchgroup=arbFpKeyword start="^OUTPUT"           end=";" keepend contains=arbFpOutputOp
 syn region arbFpRegion matchgroup=arbFpKeyword start="^ALIAS"            end=";" keepend contains=arbFpAliasOp
 
