@@ -19,8 +19,7 @@ syn match arbVpStart   "!!ARBvp1.0" nextgroup=arbErr
 syn match arbVpEnd     "END"        nextgroup=arbErr contains=arbKeyword
 
 " Types {{{2
-
-" Technically this is only supposed to contain multiples of 4, but I have no
+" Technically weight is only supposed to contain multiples of 4, but I have no
 " idea how to implement that here, though I think it would be worth it.
 syn match arbVpBinding "vertex\.weight\(\[\d\+\]\)\?"                            contained contains=arbBraces,arbInt
 syn match arbVpBinding "vertex\.\(normal\|position\)"                            contained
@@ -29,7 +28,7 @@ syn match arbVpBinding "vertex\.fogcoord\(\[\d\+\]\)\?"                         
 syn match arbVpBinding "vertex\.matrixindex\[\d\+\]"                             contained contains=arbBraces,arbInt
 syn match arbVpBinding "vertex\.attrib\[\d\+\]"                                  contained contains=arbBraces,arbInt
 
-" Function Signatures
+" Function Signatures {{{2
 syn match arbVpAttribOp     "\_s*[a-z]\+\_s*=\_s*[a-z\.\[\]\d]\+"                contained contains=arbIdentifier,arbOperator,arbVpBinding
 
 " Regions {{{2
@@ -75,7 +74,9 @@ syn region arbVpRegion matchgroup=arbVpKeyword start="^RSQ" end=";" keepend cont
 syn region arbVpRegion matchgroup=arbVpKeyword start="^POW" end=";" keepend contains=arbScalarOp2,arbErr
 
 " Naming {{{3
-syn region arbVpRegion matchgroup=arbVpKeyword start="^ATTRIB" end=";" keepend contains=arbVpAttribOp
+syn region arbVpRegion matchgroup=arbVpKeyword start="^ATTRIB"  end=";" keepend contains=arbVpAttribOp
+syn region arbVpRegion matchgroup=arbVpKeyword start="^TEMP"    end=";" keepend contains=arbNameListOp
+syn region arbVpRegion matchgroup=arbVpKeyword start="^ADDRESS" end=";" keepend contains=arbNameListOp
 
 
 " vim stuff {{{1
