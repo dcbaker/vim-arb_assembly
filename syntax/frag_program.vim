@@ -42,8 +42,8 @@ syn match arbFpParamOp   "\_s*[a-z\.]\+\(\[\d\+\]\)\?\_s*=\_s*\d*\.\d\+"        
 syn match arbFpParamOp   "\_s*[a-z\.]\+\(\[\d\+\]\)\?\_s*=\_s*{\s*\d*\.\d\+\(\s*,\s*\d*\.\d\+\)\{3}\s*}" contained contains=arbIdentifier,arbOperator,arbVec
 syn match arbFpParamOp   "\_s*[a-z\.]\+\(\[\d\+\]\)\?\_s*=\_s*program.\(env\|local\)\[\d\+\]"            contained contains=arbIdentifier,arbOperator,arbFpProgram
 syn match arbFpParamOp   "\_s*[a-z\.]\+\(\[\d\+\]\)\?\_s*=\_s*state\..*"                                 contained contains=arbIdentifier,arbOperator,arbFpState
-" Multi only
-syn match arbFpParamOp   "\_s*[a-z\.]\+\(\[\d\+\]\)\_s*=\_s*{.*}"                                        contained contains=arbIdentifier,arbBraces,arbOperator,arbFloat,arbVec,arbFpProgram,arbFpState
+syn match arbFpParamOp   "\_s*[a-z\.]\+\(\[\d\+\]\)\_s*=\_s*{.*}"                                        contained contains=arbIdentifier,arbBraces,arbOperator,arbFloat,arbVec,arbFpProgram,arbFpState " Multi only
+syn match arbFpTempOp    "\(\_s*[a-z\.]\+\_s*,\?\)\+"                                                    contained contains=arbIdentifier,arbOperator
 
 
 " Highlights {{{2
@@ -117,6 +117,7 @@ syn region arbFpRegion matchgroup=arbFpKeyword start="^\(TXB_SAT\|TXB\)" end=";"
 " Naming {{{3
 syn region arbFpRegion matchgroup=arbFpKeyword start="^ATTRIB"           end=";" keepend contains=arbFpAttrib
 syn region arbFpRegion matchgroup=arbFpKeyword start="^PARAM"            end=";" keepend contains=arbFpParamOp
+syn region arbFpRegion matchgroup=arbFpKeyword start="^TEMP"             end=";" keepend contains=arbFpTempOp
 
 " vim stuff {{{1
 let b:current_syntax = "ARB fragment assembly"
