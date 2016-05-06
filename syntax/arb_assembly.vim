@@ -30,7 +30,7 @@ syn match arbScalarOp2  "\_s*[a-z\.]\+\(\_s*,\_s*\([-0-9\. ]\+\|[a-z\.]\+\)\)\{2
 syn match arbOption     "\_s*[A-Za-z_]\+"                                                 contained contains=arbExtension
 syn match arbIdOp       "\_s*[a-z\.]\+\_s*,\_s*\[a-z\.]\+"                                contained contains=arbIdentifier,arbDelimiter
 syn match arbNameListOp "\(\_s*[a-z\.]\+\_s*,\?\)\+"                                      contained contains=arbIdentifier,arbDelimiter
-
+syn match arbAliasOp   "\_s*[a-z]\+\_s*=\_s*[a-z]\+"                                      contained contains=arbIdentifier,arbOperator
 
 " Highlights {{{2
 hi def link arbErr              Error
