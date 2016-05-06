@@ -10,9 +10,9 @@ runtime! syntax/arb_assembly.vim
 
 " Global matches {{{1
 " Types {{{2
-syn match arbType        "fragment\.color\(\.\(primary\|secondary\)\)\?"                 contained
-syn match arbType        "fragment\.texcoord\(\[\d\+\]\)\?"                              contained contains=arbBraces,arbInt
-syn match arbType        "fragment\.\(fragcoord\|position\)"                             contained contains=arbBraces,arbInt
+syn match arbFragment    "fragment\.color\(\.\(primary\|secondary\)\)\?"                 contained
+syn match arbFragment    "fragment\.texcoord\(\[\d\+\]\)\?"                              contained contains=arbBraces,arbInt
+syn match arbFragment    "fragment\.\(fragcoord\|position\)"                             contained contains=arbBraces,arbInt
 syn match arbProgram     "program\.\(local\|env\)\[\d\+\]"                               contained contains=arbBraces,arbInt
 syn match arbMaterials   "\(ambient\|diffuse\|specular\|emission\|shininess\)"           contained
 syn match arbLights      "\(ambient\|diffuse\|specular\|position\|attenuation\|half\)"   contained
@@ -44,12 +44,13 @@ syn match arbParamOp   "\_s*[a-z\.]\+\_s*=\_s*state\..*"                        
 
 
 " Highlights {{{2
-hi def link arbType             Type
+hi def link arbFragment         Type
 hi def link arbProgram          Type
 hi def link arbState            Type
 hi def link arbMaterials        Type
 hi def link arbMatrix           Type
 hi def link arbLights           Type
+hi def link arbProgram          Type
 
 
 " Commands {{{1
