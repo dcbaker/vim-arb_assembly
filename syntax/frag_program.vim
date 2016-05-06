@@ -46,6 +46,7 @@ syn match arbFpParamOp   "\_s*[a-z\.]\+\(\[\d\+\]\)\?\_s*=\_s*state\..*"        
 syn match arbFpParamOp   "\_s*[a-z\.]\+\(\[\d\+\]\)\_s*=\_s*{.*}"                                        contained contains=arbIdentifier,arbBraces,arbOperator,arbFloat,arbVec,arbFpProgram,arbFpState " Multi only
 syn match arbFpTempOp    "\(\_s*[a-z\.]\+\_s*,\?\)\+"                                                    contained contains=arbIdentifier,arbOperator
 syn match arbFpOutputOp  "\_s*[a-z.]\+\_s*=\_s*result\..*"                                               contained contains=arbIdentifier,arbOperator,arbFpOutputBinding
+syn match arbFpAliasOp   "\_s*[a-z]\+\_s*=\_s*[a-z]\+"                                                   contained contains=arbIdentifier,arbOperator
 
 " Highlights {{{2
 hi def link arbFpFragment         Type
@@ -121,6 +122,7 @@ syn region arbFpRegion matchgroup=arbFpKeyword start="^ATTRIB"           end=";"
 syn region arbFpRegion matchgroup=arbFpKeyword start="^PARAM"            end=";" keepend contains=arbFpParamOp
 syn region arbFpRegion matchgroup=arbFpKeyword start="^TEMP"             end=";" keepend contains=arbFpTempOp
 syn region arbFpRegion matchgroup=arbFpKeyword start="^OUTPUT"           end=";" keepend contains=arbFpOutputOp
+syn region arbFpRegion matchgroup=arbFpKeyword start="^ALIAS"            end=";" keepend contains=arbFpAliasOp
 
 " vim stuff {{{1
 let b:current_syntax = "ARB fragment assembly"
