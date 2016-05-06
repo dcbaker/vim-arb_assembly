@@ -17,8 +17,9 @@ syn match arbOperator    "[=]"                                                  
 syn match arbSwizType    "[01rgba]\(,[01rgba]\)\{3}"                                     contained contains=arbDelimiter
 syn match arbSwizType    "[01xyzw]\(,[01xyzw]\)\{3}"                                     contained contains=arbDelimiter
 syn match arbTexTarget   "\([123]D\|CUBE\|RECT\)"                                        contained
-syn match arbIdentifier  "[a-z]\+\(\.[a-z]\+\)\?\(\[\d\+\]\)\?"                          contained contains=arbType,arbBraces,arbInt,arbSwizzle
 syn match arbVec         "{\s*\(-\?\d*\.\d\+\s*,\s*\)\{3}-\?\d*\.\d\+\s*}"               contained contains=arbDelimiter,arbBraces,arbFloat
+syn match arbSpecial     "program\.\(local\|env\)"                                       contained
+syn match arbIdentifier  "[a-z]\+\(\.[a-z]\+\)\?\(\[\d\+\]\)\?"                          contained contains=arbType,arbBraces,arbInt,arbSwizzle,arbSpecial
 
 " Argument Signatures {{{2
 syn match arbVectorOp  "\_s*[a-z\.]\+\_s*,\_s*\({[-0-9\., ]\+}\|[a-z\.]\+\)"             contained contains=arbVec,arbIdentifier,arbDelimiter
@@ -44,5 +45,6 @@ hi def link arbExtension        String
 hi def link arbSwizzle          String
 hi def link arbSwizType         String
 hi def link arbTexTarget        StorageClass
+hi def link arbSpecial          Type
 
 " vim: foldmethod=marker spell
