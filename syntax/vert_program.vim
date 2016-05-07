@@ -12,6 +12,8 @@ runtime! syntax/arb_assembly.vim
 hi def link arbVpKeyword     arbKeyword
 hi def link arbVpStart       arbVpKeyword
 hi def link arbVpBinding     Type
+hi def link arbVpBinding     Type
+hi def link arbVpState       Type
 
 " Commands {{{1
 " Special {{{2
@@ -27,9 +29,24 @@ syn match arbVpBinding "vertex\.color\(\.\(primary\|secondary\)\)\?"            
 syn match arbVpBinding "vertex\.fogcoord\(\[\d\+\]\)\?"                          contained contains=arbBraces,arbInt
 syn match arbVpBinding "vertex\.matrixindex\[\d\+\]"                             contained contains=arbBraces,arbInt
 syn match arbVpBinding "vertex\.attrib\[\d\+\]"                                  contained contains=arbBraces,arbInt
+syn match arbVpState   "state\.material\(.\(front\|back\)\)\?\.\(ambient\|diffuse\|specular\|emission\|shininess\)"  contained
+syn match arbVpState   "state\.light\[\d\+\].\(ambient\|diffuse\|specular\|attenuation\|spot\.direction\|half\)"     contained contains=arbBraces,arbInt
+syn match arbVpState   "state\.lightmodel\.\(ambient\|\(front\|back\)\.scenecolor\)"                                 contained
+syn match arbVpState   "state\.lightprod\[\d\+\]\.\(front\|back\)\.\(ambient\|diffuse\|specular\)"                   contained contains=arbBraces,arbInt
+syn match arbVpState   "state\.texgen\(\[\d\+\]\)\?\.\(eye\|object\)\.[strq]"                                        contained contains=arbBraces,arbInt
+syn match arbVpState   "state\.fog\.\(color\|param\)"                                                                contained
+syn match arbVpState   "state\.clip\[\d\+\]\.plane"                                                                  contained contains=arbBraces,arbInt
+syn match arbVpState   "state\.point\.\(size\|attenuation\)"                                                         contained
+syn match arbVpState   "state\.matrix\.modelview\(\[\d\+\]\)\?\.\(inverse\|transpose\|invtrans\)\?\.\?row\[\d\+\(\.\.\d\+\)\?\]" contained contains=arbBraces,arbInt
+syn match arbVpState   "state\.matrix\.mvp\.row\[\d\+\(\.\.\d\+\)\?\]"                                               contained contains=arbBraces,arbInt
+syn match arbVpState   "state\.matrix\.projection\.row\[\d\+\(\.\.\d\+\)\?\]"                                        contained contains=arbBraces,arbInt
+syn match arbVpState   "state\.matrix\.palette\[\d\+\]\.row\[\d\+\(\.\.\d\+\)\?\]"                                   contained contains=arbBraces,arbInt
+syn match arbVpState   "state\.matrix\.program\[\d\+\]\.row\[\d\+\(\.\.\d\+\)\?\]"                                   contained contains=arbBraces,arbInt
+syn match arbVpState   "state\.matrix\.texture\(\[\d\+\]\)\?\.row\[\d\+\(\.\.\d\+\)\?\]"                             contained contains=arbBraces,arbInt
 
 " Function Signatures {{{2
 syn match arbVpAttribOp     "\_s*[a-z]\+\_s*=\_s*[a-z\.\[\]\d]\+"                contained contains=arbIdentifier,arbOperator,arbVpBinding
+syn match arbVpParamOp      "\_s*[a-z]\+\s_*=\_s*state\."                        contained contains=arbVpState
 
 " Regions {{{2
 " Special {{{3
@@ -78,6 +95,7 @@ syn region arbVpRegion matchgroup=arbVpKeyword start="^ATTRIB"  end=";" keepend 
 syn region arbVpRegion matchgroup=arbVpKeyword start="^TEMP"    end=";" keepend contains=arbNameListOp
 syn region arbVpRegion matchgroup=arbVpKeyword start="^ADDRESS" end=";" keepend contains=arbNameListOp
 syn region arbVpRegion matchgroup=arbVpKeyword start="^ALIAS"   end=";" keepend contains=arbAliasOp
+syn region arbVpRegion matchgroup=arbVpKeyword start="^PARAM"   end=";" keepend contains=arbVpParamOp
 
 
 " vim stuff {{{1
