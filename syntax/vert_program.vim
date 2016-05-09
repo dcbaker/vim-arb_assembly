@@ -45,8 +45,9 @@ syn match arbVpState   "state\.matrix\.program\[\d\+\]\.row\[\d\+\(\.\.\d\+\)\?\
 syn match arbVpState   "state\.matrix\.texture\(\[\d\+\]\)\?\.row\[\d\+\(\.\.\d\+\)\?\]"                             contained contains=arbBraces,arbInt
 
 " Function Signatures {{{2
-syn match arbVpAttribOp     "\_s*[a-z]\+\_s*=\_s*[a-z\.\[\]\d]\+"                contained contains=arbIdentifier,arbOperator,arbVpBinding
-syn match arbVpParamOp      "\_s*[a-z]\+\s_*=\_s*state\."                        contained contains=arbVpState,arbOperator
+syn match arbVpAttribOp     "\_s*[a-z]\+\_s*=\_s*[a-z\.\[\]\d]\+"                           contained contains=arbIdentifier,arbOperator,arbVpBinding
+syn match arbVpParamOp      "\_s*[a-z]\+\s_*=\_s*state\."                                   contained contains=arbVpState,arbOperator
+syn match arbVpParamOp      "\_s*[a-z]\+\s_*=\_s*{\s*[0-9.]\+\(\s*,\s*[0-9.]\+\)\{0,3}\s*}" contained contains=arbBraces,arbDelimiter,arbFloat,arbInt,arbOperator
 
 " Regions {{{2
 " Special {{{3
